@@ -1,0 +1,227 @@
+\documentclass[12pt,oneside]{report}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage{amsmath,amssymb}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{geometry}
+\usepackage{hyperref}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\geometry{
+    a4paper,
+    left=30mm,
+    right=25mm,
+    top=30mm,
+    bottom=30mm,
+}
+
+% Images are one level above in visuals folder
+\graphicspath{{../visuals/}}
+
+\title{Cryptography and Quantum Cryptography Homework 1}
+\author{Yvonne Akinyi Amugaga \\ Neptune: Y2Q07H}
+\date{\today}
+
+\begin{document}
+
+\maketitle
+
+% =====================================================
+
+\section{Selected Text}
+
+The selected Spanish four-line poem is:
+
+\vspace{0.5em}
+
+\begin{verse}
+Bajo el cielo de España diremos ``sí, acepto'',\\
+el tres de octubre sellamos nuestro amor perfecto.\\
+Con el alma entrelazada y el corazón encendido,\\
+me caso con el amor de mi vida, mi destino elegido.
+\end{verse}
+
+
+\section*{Spanish Alphabet Used}
+
+\[
+\text{A B C D E F G H I J K L M N Ñ O P Q R S T U V W X Y Z}
+\]
+
+This alphabet contains 27 letters.
+
+% =====================================================
+\section{Normalization}
+
+All letters were converted to uppercase. Accented characters were replaced
+and all non-alphabetic characters were removed.
+
+\bigskip
+
+\noindent\textbf{Normalized Plaintext:}
+
+\vspace{0.5em}
+
+\begin{verse}
+BAJOELCIELODEESPANADIREMOSSIACTO\\
+ELTRESDOCTUBRESELLAMOSNUESTROAMORPERFECTO\\
+CONELALMAENTRELAZADAYELCORAZONENCENDIDO\\
+MECASOCONELAMORDEMIVIDAMIDESTINOELEGIDO
+\end{verse}
+
+% =====================================================
+\section{Caesar Cipher}
+
+A shift of 3 was used.
+
+\[
+C = (P + 3) \mod 27
+\]
+
+Encrypted text:
+
+\begin{center}
+(Insert your Caesar encrypted output here)
+\end{center}
+
+% =====================================================
+\section{Vigenere Cipher}
+
+Keyword used: \textbf{KENYA}
+
+\[
+C_i = (P_i + K_i) \mod 27
+\]
+
+Encrypted text:
+
+\begin{center}
+(Insert your Vigenere encrypted output here)
+\end{center}
+
+% =====================================================
+\section{Enigma Encryption}
+
+A simplified Enigma machine was implemented in Python using:
+
+\begin{itemize}
+    \item Three rotors
+    \item One reflector
+    \item Rotor stepping mechanism
+\end{itemize}
+
+Encrypted text:
+
+\begin{center}
+(Insert your Enigma encrypted output here)
+\end{center}
+
+% =====================================================
+\section{Frequency Analysis}
+
+Letter frequencies were computed for:
+
+\begin{itemize}
+    \item Original text
+    \item Caesar cipher text
+    \item Vigenere cipher text
+    \item Enigma cipher text
+\end{itemize}
+
+% -----------------------------------------------------
+\subsection{Original Text Statistics}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{plain.png}
+    \caption{Letter frequency of the original Spanish text}
+\end{figure}
+
+\textbf{Observation:}
+
+The letters E, A, O, S, R and N appear most frequently,
+which corresponds to the known statistical properties of Spanish.
+
+% -----------------------------------------------------
+\subsection{Caesar Cipher Statistics}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{caesar.png}
+    \caption{Letter frequency after Caesar encryption}
+\end{figure}
+
+\textbf{Observation:}
+
+The distribution remains identical to the original but shifted cyclically.
+The statistical structure of the language is still clearly recognizable.
+
+% -----------------------------------------------------
+\subsection{Vigenere Cipher Statistics}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{vigenere.png}
+    \caption{Letter frequency after Vigenere encryption}
+\end{figure}
+
+\textbf{Observation:}
+
+The distribution becomes more dispersed compared to the Caesar cipher.
+The original frequency peaks are partially concealed.
+
+% -----------------------------------------------------
+\subsection{Enigma Cipher Statistics}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.9\textwidth]{enigma.png}
+    \caption{Letter frequency after Enigma encryption}
+\end{figure}
+
+\textbf{Observation:}
+
+The distribution appears significantly more uniform.
+The characteristic Spanish frequency pattern is no longer easily recognizable,
+demonstrating stronger statistical concealment.
+
+% =====================================================
+\section{Comparison of Statistical Properties}
+
+\begin{itemize}
+    \item The Caesar cipher preserves letter frequency structure.
+    \item The Vigenere cipher partially hides frequency patterns.
+    \item The Enigma machine produces a near-uniform distribution.
+    \item Enigma encryption significantly reduces statistical predictability.
+\end{itemize}
+
+% =====================================================
+\section{Sources Used}
+
+\begin{itemize}
+    \item Custom Python implementation
+    \item Matplotlib library for histogram generation
+    \item Course lecture notes
+\end{itemize}
+
+% =====================================================
+\section{Conclusion}
+
+This assignment demonstrates that classical substitution ciphers such as
+the Caesar cipher preserve statistical properties of the language
+and are vulnerable to frequency analysis.
+
+The Vigenere cipher improves security by applying multiple shifts
+based on a keyword.
+
+The Enigma machine introduces rotor stepping and multiple layered
+transformations, producing a significantly more uniform frequency
+distribution and making statistical attacks substantially more difficult.
+
+\end{document}
