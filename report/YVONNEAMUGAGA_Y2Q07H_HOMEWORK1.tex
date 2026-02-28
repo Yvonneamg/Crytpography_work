@@ -11,7 +11,15 @@
 \usepackage{geometry}
 \usepackage{hyperref}
 \usepackage{setspace}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt}
 \setstretch{1.15}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue
+}
 
 \geometry{
     a4paper,
@@ -25,7 +33,7 @@
 \graphicspath{{../visuals/}}
 
 \title{Cryptography and Quantum Cryptography Homework 1}
-\author{Yvonne Akinyi Amugaga \\ Neptune: Y2Q07H}
+\author{Yvonne Akinyi Amugaga \\ Neptune: Y2Q07H \\ Msc Applied Mathematics}
 \date{\today}
 
 \begin{document}
@@ -201,6 +209,25 @@ The characteristic Spanish frequency pattern is no longer easily recognizable,
 demonstrating stronger statistical concealment.
 
 % =====================================================
+\subsection{Online Enigma Simulation (Cryptii)}
+
+The following screenshot shows the encryption performed using the
+online Enigma simulator provided by Cryptii.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.95\textwidth]{cryptii_enigma.png}
+    \caption{Online Enigma encryption using Cryptii}
+\end{figure}
+
+\textbf{Observation:}
+
+The frequency distribution appears approximately uniform.
+The characteristic Spanish language peaks are no longer visible.
+This confirms that rotor-based encryption significantly reduces
+statistical predictability, similar to the simplified Enigma implementation.
+
+% =====================================================
 \section{Comparison of Statistical Properties}
 
 \begin{itemize}
@@ -211,10 +238,16 @@ demonstrating stronger statistical concealment.
 \end{itemize}
 
 % =====================================================
+
 \section{Sources Used}
 
 \begin{itemize}
-    \item Custom Python implementation
+    \item \href{https://github.com/Yvonneamg/Crytpography_work}
+    {Custom Python Implementation (GitHub Repository)}
+
+    \item \href{https://cryptii.com/pipes/caesar-cipher-decoder}
+    {Cryptii Online Enigma Simulator}
+
     \item Matplotlib library for histogram generation
     \item Course lecture notes
 \end{itemize}
@@ -222,15 +255,17 @@ demonstrating stronger statistical concealment.
 % =====================================================
 \section{Conclusion}
 
-This assignment demonstrates that classical substitution ciphers such as
-the Caesar cipher preserve statistical properties of the language
-and are vulnerable to frequency analysis.
+This work demonstrates that classical substitution ciphers such as the
+Caesar cipher preserve the statistical properties of the underlying language.
+As a consequence, they remain vulnerable to frequency analysis attacks.
 
-The Vigenere cipher improves security by applying multiple shifts
-based on a keyword.
+The Vigenere cipher improves security by applying multiple shifts based on a
+keyword. This reduces the visibility of clear frequency peaks, although
+statistical structure may still be partially detectable.
 
 The Enigma machine introduces rotor stepping and multiple layered
-transformations, producing a significantly more uniform frequency
-distribution and making statistical attacks substantially more difficult.
+transformations. As a result, the ciphertext exhibits a significantly more
+uniform frequency distribution, making statistical attacks substantially
+more difficult.
 
 \end{document}
